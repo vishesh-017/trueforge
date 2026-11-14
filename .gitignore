@@ -1,0 +1,15 @@
+node_modules/
+dist/
+dist-test/
+dist-types/
+*.vsix
+.env
+config/models.local.json
+.trueforge/
+flask/
+.cursor/
+.vscode-test/
+*.log
+.DS_Store
+Thumbs.db
+AgentStores/
