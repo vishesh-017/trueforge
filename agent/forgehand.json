@@ -1,0 +1,40 @@
+{
+  "name": "forgehand",
+  "description": "Editor-native coding agent. Discovers relevant files under a token budget, proposes multi-file edits, and waits for per-hunk review before anything is written.",
+  "instructionsFile": "INSTRUCTIONS.md",
+  "manifest": {
+    "model": {
+      "name": "set-by-the-extension-from-trueforge",
+      "params": {
+        "temperature": 0.2,
+        "max_tokens": 4096,
+        "parallel_tool_calls": true
+      }
+    },
+    "mcp_servers": [
+      {
+        "name": "forgehand-editor",
+        "enable_tools": ["@all"],
+        "preload": false,
+        "preload_tools": ["retrieve_context", "read_file", "search_code", "propose_edit", "run_command"],
+        "require_approval_for_tools": ["propose_edit", "run_command"]
+      }
+    ],
+    "config": {
+      "iteration_limit": 48,
+      "sandbox": { "enabled": false },
+      "web_search": { "enabled": false },
+      "memory": { "enabled": false },
+      "generative_ui": { "enabled": false },
+      "ask_user_questions": { "enabled": false },
+      "dynamic_sub_agents": { "enabled": true },
+      "context_management": {
+        "compaction": {
+          "enabled": true,
+          "trigger": { "type": "input_tokens", "value": 80000 }
+        },
+        "large_tool_response": { "enabled": false }
+      }
+    }
+  }
+}
