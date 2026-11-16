@@ -1,0 +1,13 @@
+.git/**
+.github/**
+src/**
+test/**
+node_modules/**
+**/*.ts
+**/*.map
+tsconfig.json
+esbuild.mjs
+dist-test/**
+dist-types/**
+config/models.local.json
+.env

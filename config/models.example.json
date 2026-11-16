@@ -1,0 +1,24 @@
+{
+  "trueforgeBaseUrl": "http://localhost:8790",
+  "note": "Copy this file to config/models.local.json if you want scripts/configure-models.mjs to register providers. Never commit API keys. The extension does not read this file and never calls a model provider.",
+  "primary": {
+    "type": "openai",
+    "modelResourceName": "gpt-4-1-mini",
+    "modelId": "gpt-4.1-mini",
+    "contextLength": 128000,
+    "maxOutputTokens": 16384,
+    "apiKeyEnv": "PRIMARY_MODEL_API_KEY",
+    "fullyQualifiedName": "openai/gpt-4-1-mini"
+  },
+  "fallback": {
+    "type": "custom",
+    "name": "fallback",
+    "baseUrl": "http://127.0.0.1:11434/v1",
+    "modelResourceName": "llama",
+    "modelId": "llama3.1",
+    "contextLength": 128000,
+    "maxOutputTokens": 8192,
+    "apiKeyEnv": "FALLBACK_MODEL_API_KEY",
+    "fullyQualifiedName": "fallback/llama"
+  }
+}
