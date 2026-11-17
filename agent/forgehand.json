@@ -11,6 +11,12 @@
         "parallel_tool_calls": true
       }
     },
+    "skills": [
+      {
+        "name": "forgehand-edit",
+        "preload": false
+      }
+    ],
     "mcp_servers": [
       {
         "name": "forgehand-editor",
@@ -22,7 +28,7 @@
     ],
     "config": {
       "iteration_limit": 48,
-      "sandbox": { "enabled": false },
+      "sandbox": { "enabled": true, "file_downloads": true },
       "web_search": { "enabled": false },
       "memory": { "enabled": false },
       "generative_ui": { "enabled": false },
@@ -31,9 +37,9 @@
       "context_management": {
         "compaction": {
           "enabled": true,
-          "trigger": { "type": "input_tokens", "value": 80000 }
+          "trigger": { "type": "input_tokens", "value": 12000 }
         },
-        "large_tool_response": { "enabled": false }
+        "large_tool_response": { "enabled": true }
       }
     }
   }

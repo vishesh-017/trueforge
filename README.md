@@ -1,6 +1,6 @@
 # Forgehand
 
-Forgehand is a Visual Studio Code extension that edits a repository through [TrueForge](https://github.com/truefoundry/trueforge). TrueForge owns the agent loop: model calls, streaming, sessions, tool approvals, deferred tool loading, subagents, and compaction. The extension is the client. It exposes the editor as MCP tools and will not write a file until you accept the hunks.
+Forgehand is a Visual Studio Code extension that edits a repository through [TrueForge](https://github.com/truefoundry/trueforge). TrueForge owns the agent loop: model calls, streaming, sessions, tool approvals, deferred tool loading, subagents, compaction, sandbox, skills, and Code Mode. The extension is the client. It exposes the editor as MCP tools and will not write a file until you accept the hunks. Skills and Code Mode need a sandbox provider configured in TrueForge (Daytona). On connect, Forgehand registers the git skill `forgehand-edit` from this repository.
 
 Starting point: from scratch. There is no upstream editor fork. The diff you review is VS Code's own diff editor.
 

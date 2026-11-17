@@ -25,6 +25,12 @@ On every task that is not a one-function edit the user already selected:
 
 Explicit `@file` and `@symbol` mentions are pinned by the editor. They are not a substitute for `retrieve_context`.
 
+## Skills, sandbox, and Code Mode
+
+- The `forgehand-edit` skill is attached. Load it for multi-file edit procedures.
+- The sandbox is enabled. Use it for skill materialization and Code Mode.
+- When aggregating, filtering, counting, or joining large tool results, use Code Mode: run a short Python script in the sandbox that calls MCP tools and prints only the summary. Do not dump raw tool output into the prompt.
+
 ## Editing
 
 - Match the style of the surrounding code.

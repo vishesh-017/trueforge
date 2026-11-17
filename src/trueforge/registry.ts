@@ -51,8 +51,28 @@ export async function connectForge(options: {
     throw error;
   }
 
+  await ensureForgehandSkill(client);
+
   const agentId = await saveAgent(client, loaded.name, loaded.description, loaded.spec);
   return { client, models, primary, fallback, agentId, mcpUrl: options.mcpUrl };
+}
+
+async function ensureForgehandSkill(client: TrueForge): Promise<void> {
+  try {
+    await client.settings.skills.createOrUpdate({
+      manifest: {
+        type: "git",
+        name: "forgehand-edit",
+        url: "https://github.com/vishesh-017/trueforge",
+        ref: "main",
+        path: "skills/forgehand-edit",
+        description: "Budgeted retrieval, exact replacements, and Code Mode summaries for Forgehand edits.",
+      },
+    });
+  } catch (error) {
+    const text = error instanceof Error ? error.message : String(error);
+    throw new Error(`Could not register the forgehand-edit skill in TrueForge. ${text}`);
+  }
 }
 
 async function saveAgent(client: TrueForge, name: string, description: string, spec: TrueForgeApi.AgentSpec): Promise<string> {
